@@ -1,0 +1,11 @@
+#!/bin/bash
+
+input='usernames'
+n=1
+while read line;
+do
+	password=openssl passwd
+	useradd -p $password -g coconut $line
+	echo $n : $line ' has password ' $password
+n=$((n+1))
+done < "$input"
